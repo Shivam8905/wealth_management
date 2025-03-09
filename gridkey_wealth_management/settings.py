@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'stocks',
     'stocks.tests',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
