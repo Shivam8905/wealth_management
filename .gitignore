@@ -1,0 +1,26 @@
+# Python & Django related
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+.DS_Store
+
+# Environment
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Static and media files
+static/
+media/
+
+# Coverage reports
+htmlcov/
+.coverage
+.nyc_output/
