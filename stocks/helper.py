@@ -40,7 +40,7 @@ def sell_handler(transaction):
 
     if qty_to_sell > total_holdings:
         raise serializers.ValidationError(
-            {"quantity": f"Cannot sell {qty_to_sell} stocks. Only {total_holdings} available."}
+            {"Quantity": f"Cannot sell {qty_to_sell} stocks. Only {total_holdings} available."}
         )
 
     while qty_to_sell > 0 and holdings.exists():
@@ -67,10 +67,14 @@ def split_handler(transaction):
     try:
         split_ratio = transaction.split_ratio.split(':')
         if len(split_ratio) != 2:
-            raise ValueError("Invalid split ratio format. Use format like '1:5'")
+            raise serializers.ValidationError(
+                {"Check Payload": "Invalid split ratio format. Use format like '1:5'"}
+            )
         multiplier = int(split_ratio[1]) / int(split_ratio[0])
     except (ValueError, IndexError):
-        raise ValueError("Invalid split ratio format. Use format like '1:5'")
+        raise serializers.ValidationError(
+            {"Check Payload": "Invalid split ratio format. Use format like '1:5'"}
+        )
 
 
     for holding in holdings:

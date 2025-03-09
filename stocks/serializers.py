@@ -27,7 +27,9 @@ class TransactionSerializer(serializers.ModelSerializer):
         if data['trade_type'] == TransactionType.SPLIT:
             split_ratio = data.get('split_ratio')
             if not split_ratio or ':' not in split_ratio:
-                raise serializers.ValidationError("Invalid split ratio format. Use format like '1:5'.")
+                raise serializers.ValidationError(
+                    {"Check Payload": "Invalid split ratio format. Use format like '1:5'"}
+                )
 
         return data
 

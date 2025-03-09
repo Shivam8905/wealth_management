@@ -196,8 +196,8 @@ python manage.py runserver
 400 Bad Request
 
 {
-    "non_field_errors": [
-        "Invalid split ratio format. Use format like '1:5'."
+    "Check Payload": [
+        "Invalid split ratio format. Use format like '1:5'"
     ]
 }
 
