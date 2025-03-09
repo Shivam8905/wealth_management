@@ -19,8 +19,9 @@ class TransactionSerializer(serializers.ModelSerializer):
             )
             if data['quantity'] > total_holdings:
                 raise serializers.ValidationError(
-                    "Sell quantity exceeds available holdings."
+                    {"Check Stock": "Sell quantity exceeds available holdings Or you don't have stock of this company"}
                 )
+
 
         # Split ratio format validation
         if data['trade_type'] == TransactionType.SPLIT:

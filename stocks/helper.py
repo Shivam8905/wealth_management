@@ -1,5 +1,7 @@
 from decimal import Decimal
 
+from rest_framework import serializers
+
 from .models import  TransactionDetail, TransactionType
 
 
@@ -26,13 +28,20 @@ def sell_handler(transaction):
         active=True
     ).order_by('id')  # FIFO order
 
+    if not holdings:
+        raise serializers.ValidationError(
+            {"You don't have stocks of this company"}
+        )
+
     qty_to_sell = transaction.quantity
 
     # Ensure there are enough stocks to sell
     total_holdings = sum(holding.quantity for holding in holdings)
 
     if qty_to_sell > total_holdings:
-        raise ValueError(f"Cannot sell {qty_to_sell} stocks. Only {total_holdings} available.")
+        raise serializers.ValidationError(
+            {"quantity": f"Cannot sell {qty_to_sell} stocks. Only {total_holdings} available."}
+        )
 
     while qty_to_sell > 0 and holdings.exists():
         holding = holdings.first()

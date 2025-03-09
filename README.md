@@ -169,8 +169,8 @@ python manage.py runserver
 400 Bad Request
 
 {
-    "non_field_errors": [
-        "Sell quantity exceeds available holdings."
+    "Check Stock": [
+        "Sell quantity exceeds available holdings Or you don't have stock of this company"
     ]
 }
 
