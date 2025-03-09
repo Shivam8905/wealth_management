@@ -1,6 +1,12 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 
+"""
+why 2 model Transaction and TransactionDetail ? 
+-> Because most of the change are done on TransactionDetail, 
+so data of Transaction is safe and can be use to see history.
+"""
+
 class TransactionType(models.IntegerChoices):
     """
     Enum for defining different types of transactions:
