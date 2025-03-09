@@ -14,22 +14,8 @@ A Django-based stock transaction management system that allows users to **BUY**,
 ---
 
 ## 🏗️ **Project Setup**
-### ✅ **Follow These Steps to Set Up the Project**  
+### 1. **Clone the Repository**
 ```bash
-# Clone the repository
 git clone https://github.com/Shivam8905/wealth_management.git
 cd wealth_management
 
-# Create a virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Apply database migrations
-python manage.py makemigrations
-python manage.py migrate
-
-# Start the development server
-python manage.py runserver
